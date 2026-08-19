@@ -1,0 +1,19 @@
+* { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: #f8fafc;
+}
+table { border-collapse: collapse; }
+button { font-family: inherit; }
+
+/* Scrollbar polish for the scrollable data tables */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #d8d2e6; border-radius: 8px; }
+::-webkit-scrollbar-thumb:hover { background: #b9adcf; }
+
+@media print {
+  .no-print { display: none !important; }
+}

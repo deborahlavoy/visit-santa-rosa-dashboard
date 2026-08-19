@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Visit Santa Rosa — Q1Media Reporting</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div id="root"></div>
+
+<!-- Holds every month's data. Must exist before any data/YYYY-MM.js file loads. -->
+<script>window.REPORTS = [];</script>
+
+<!-- ============================================================= -->
+<!-- Core libraries (loaded from CDN — no build step required)      -->
+<!-- ============================================================= -->
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/prop-types/prop-types.min.js"></script>
+<script src="https://unpkg.com/recharts@2/umd/Recharts.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<!-- ============================================================= -->
+<!-- MONTHLY DATA FILES                                              -->
+<!-- Add ONE new <script> line here each month, pointing at the new -->
+<!-- data/YYYY-MM.js file. That is the only edit needed to this      -->
+<!-- file — see README.md for the full step-by-step.                -->
+<!-- ============================================================= -->
+<script src="data/2026-07.js"></script>
+<!-- <script src="data/2026-08.js"></script> -->
+
+<!-- App code (JSX). Fetched and transpiled in-browser by Babel standalone,
+     then injected as a plain script — done manually (rather than via
+     Babel's auto <script type="text/babel"> scanner) for more reliable
+     behavior across browsers. -->
+<script>
+  fetch('app.js')
+    .then((r) => r.text())
+    .then((src) => Babel.transform(src, { presets: [['react', { runtime: 'classic' }]] }).code)
+    .then((code) => {
+      const s = document.createElement('script');
+      s.textContent = code;
+      document.body.appendChild(s);
+    });
+</script>
+
+</body>
+</html>
